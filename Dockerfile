@@ -36,3 +36,5 @@ COPY --chown=node:node .env.docker .env
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
+
+#cinu
