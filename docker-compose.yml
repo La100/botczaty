@@ -21,6 +21,8 @@ services:
     depends_on:
       - redis
       - mongodb
+    volumes:
+      - uploaded-files:/storage
 
   nodejs_worker:
     build: .
@@ -34,6 +36,8 @@ services:
     depends_on:
       - redis
       - mongodb
+    volumes:
+      - uploaded-files:/storage
 
   frontend:
     build: ./frontend
@@ -51,3 +55,6 @@ services:
 
 volumes:
   db-data:
+    driver: local
+  uploaded-files:
+    driver: local
