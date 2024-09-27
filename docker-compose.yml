@@ -23,6 +23,9 @@ services:
       - mongodb
     volumes:
       - uploaded-files:/storage
+    environment:
+      OPENAI_KEY: ${OPENAI_KEY}
+      OPENAI_KEY_2: ${OPENAI_KEY_2}
 
   nodejs_worker:
     build: .
@@ -30,6 +33,9 @@ services:
     depends_on:
       - redis
       - mongodb
+    environment:
+      OPENAI_KEY: ${OPENAI_KEY}
+      OPENAI_KEY_2: ${OPENAI_KEY_2}
 
   python_worker:
     build: ./workers
@@ -38,6 +44,9 @@ services:
       - mongodb
     volumes:
       - uploaded-files:/storage
+    environment:
+      OPENAI_KEY: ${OPENAI_KEY}
+      OPENAI_KEY_2: ${OPENAI_KEY_2}
 
   frontend:
     build: ./frontend
